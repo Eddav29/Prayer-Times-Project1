@@ -10,13 +10,28 @@ function prayerTimes(year, month, latitude, longitude) {
 
       let app = document.getElementById("app");
       let table = document.createElement("table");
+
+      // Create thead element and its row
+      let thead = document.createElement("thead");
+      let theadRow = thead.insertRow();
+
+      // Create th elements for thead
+      let thName = document.createElement("th");
+      let thTime = document.createElement("th");
+      thName.innerHTML = "Name";
+      thTime.innerHTML = "Time";
+
+      // Append th elements to thead row
+      theadRow.appendChild(thName);
+      theadRow.appendChild(thTime);
+
+      // Append thead to table
+      table.appendChild(thead);
+
       let tableTbody = document.createElement("tbody");
-      //console.log(response.data[today]);
 
       for (i in data) {
-        //membuat table dam agar tr tidak double
         let row = tableTbody.insertRow();
-        //membuat 2 kolom
         let name = row.insertCell(0);
         let time = row.insertCell(1);
         name.innerHTML = i;
@@ -24,7 +39,6 @@ function prayerTimes(year, month, latitude, longitude) {
         tableTbody.appendChild(row);
       }
       table.appendChild(tableTbody);
-      //memasukkan ke table ke div id app
       app.appendChild(table);
     });
 }
