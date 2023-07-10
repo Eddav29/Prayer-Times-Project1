@@ -1,5 +1,5 @@
 function prayerTimes(year, month, latitude, longitude) {
-  const endpoint = `http://api.aladhan.com/v1/calendar/${year}/${month}?latitude=${latitude}&longitude=${longitude}&method=2`;
+  const endpoint = `http://api.aladhan.com/v1/calendar/${year}/${month}?latitude=${latitude}&longitude=${longitude}&method=4`;
 
   fetch(endpoint)
     .then((response) => response.json())
