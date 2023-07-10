@@ -4,7 +4,10 @@ function prayerTimes(year, month, latitude, longitude) {
   fetch(endpoint)
     .then((response) => response.json())
     .then(function (response) {
-      console.log(response.data[0].timings);
+      let date = new Date();
+      let today = date.getDate() - 1;
+
+      console.log(response.data[today]);
     });
 }
 
