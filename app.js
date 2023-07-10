@@ -6,8 +6,26 @@ function prayerTimes(year, month, latitude, longitude) {
     .then(function (response) {
       let date = new Date();
       let today = date.getDate() - 1;
+      let data = response.data[today].timings;
 
-      console.log(response.data[today]);
+      let app = document.getElementById("app");
+      let table = document.createElement("table");
+      let tableTbody = document.createElement("tbody");
+      //console.log(response.data[today]);
+
+      for (i in data) {
+        //membuat table dam agar tr tidak double
+        let row = tableTbody.insertRow();
+        //membuat 2 kolom
+        let name = row.insertCell(0);
+        let time = row.insertCell(1);
+        name.innerHTML = i;
+        time.innerHTML = data[i];
+        tableTbody.appendChild(row);
+      }
+      table.appendChild(tableTbody);
+      //memasukkan ke table ke div id app
+      app.appendChild(table);
     });
 }
 
