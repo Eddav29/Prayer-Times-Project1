@@ -40,7 +40,16 @@ function success(position) {
 }
 
 function error() {
-  alert("posisi tidak dapat diakses");
+  const latitude = -6.2088; // Jakarta latitude
+  const longitude = 106.8456; // Jakarta longitude
+
+  prayerTimes(
+    new Date().getFullYear(),
+    new Date().getMonth(),
+    latitude,
+    longitude
+  );
+  alert("posisi tidak dapat diakses, menggunakan lokasi Jakarta");
 }
 
 function userLocation() {
